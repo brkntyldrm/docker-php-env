@@ -1,14 +1,12 @@
 <?php
-$server = 'mysql';
-$username = 'root';
-$password = 'root';
+$server = 'mysql:host=127.0.0.1;dbname=posts;port=3306';
+$username = 'user';
+$password = 'user';
 
-$conn = new mysqli($server, $username, $password, 'posts');
-
-if ($conn->connect_error) {
+$conn = new PDO($server, $username, $password);
+if (!$conn) {
     die('Connection failed');
 }
-
 
 $sql = "INSERT INTO post (content)
 VALUES ('Naber')";
